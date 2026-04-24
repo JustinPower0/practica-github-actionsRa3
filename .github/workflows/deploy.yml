@@ -18,10 +18,10 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /var/www/html
-            sudo rm -rf mi-proyecto
-            git clone https://github.com/${{ secrets.GITHUB_REPO }} mi-proyecto
-            sudo chown -R www-data:www-data mi-proyecto
+            mkdir -p /home/isard/web
+            cd /home/isard/web
+            rm -rf *
+            git clone https://github.com/JustinPower0/practica-github-actionsRa3.git .
