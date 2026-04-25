@@ -1,14 +1,10 @@
 <?php
-require 'db.php';
+$conn = new mysqli("localhost", "root", "", "practica");
 
-$result = $conn->query("SELECT 'Hola desde MySQL!' as mensaje");
-$row = $result->fetch_assoc();
+if ($conn->connect_error) {
+    die("Error conexión");
+}
+
+echo "Conectado a MySQL ✔";
+echo "Hello word";
 ?>
-<!DOCTYPE html>
-<html>
-<head><title>Práctica GitHub Actions</title></head>
-<body>
-  <h1>✅ Despliegue automático funcionando</h1>
-  <p><?= $row['mensaje'] ?></p>
-</body>
-</html>
